@@ -21,7 +21,7 @@
 					<ul>
 						<li><a href="index.html">Home</a></li>
 						<li><a href="generic.html" class="active">Generic</a></li>
-						<li><a href="elements.html">Elements</a></li>
+						<!-- <li><a href="elements.html">Elements</a></li> -->
 					</ul>
 				</nav>
 			</header>
@@ -32,11 +32,34 @@
 				<!-- Main -->
 					<section id="main" class="wrapper">
 						<div class="inner">
-							<h1 class="major">A Generic Page</h1>
-							<span class="image fit"><img src="images/pic04.jpg" alt="" /></span>
-							<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique.</p>
-							<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
-						</div>
+							<h1 class="major">Solutions to avoid flaky</h1>
+							<div class="carousel">
+								<div class="slides">
+									<img src="images/wait for load state.png" alt="Image 1">
+									<img src="images/go with retry.png" alt="Image 2">
+									<img src="images/wait for element to be stable.png" alt="Image 3">
+									<img src="images/default time out.png" alt="Image 4">
+									<img src="images/explicit wait.png" alt="Image 5">
+								</div>
+								 <!-- Navigation Buttons -->
+								 <span class="nav-btn prev-btn">❮</span>
+								 <span class="nav-btn next-btn">❯</span>
+							</div>
+							<p>
+								Flaky tests are a common challenge in automation testing, often caused by dynamic web elements, timing issues, or unstable test environments. To minimize flakiness:
+							</p>
+							<ul>
+								<li><strong>Use Explicit Waits:</strong> Replace hardcoded delays with explicit waits to handle dynamic elements.</li>
+								<li><strong>Stabilize Test Data:</strong> Use consistent and reliable test data to prevent random failures.</li>
+								<li><strong>Isolate Tests:</strong> Design independent test cases that do not rely on the order of execution or shared state.</li>
+								<li><strong>Improve Locators:</strong> Use robust and unique locators (e.g., `data-testid`) instead of relying on dynamic attributes.</li>
+								<li><strong>Manage Test Environment:</strong> Ensure the testing environment matches production as closely as possible.</li>
+							</ul>
+							<p>
+								By implementing these strategies, flaky tests can be reduced significantly, leading to more reliable and maintainable automation suites.
+							</p>
+							
+							</div>
 					</section>
 
 			</div>
@@ -60,5 +83,35 @@
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
 
+			<script>
+				const slides = document.querySelector('.slides');
+				const images = document.querySelectorAll('.slides img');
+				const prevBtn = document.querySelector('.prev-btn');
+				const nextBtn = document.querySelector('.next-btn');
+			
+				let index = 0;
+			
+				function showSlide(index) {
+					// Smooth transition to the next slide
+					slides.style.transform = `translateX(-${index * 100}%)`;
+				}
+			
+				function showNextSlide() {
+					index = (index + 1) % images.length; // Move to the next slide
+					showSlide(index);
+				}
+			
+				function showPrevSlide() {
+					index = (index - 1 + images.length) % images.length; // Move to the previous slide
+					showSlide(index);
+				}
+			
+				// Event listeners for buttons
+				nextBtn.addEventListener('click', showNextSlide);
+				prevBtn.addEventListener('click', showPrevSlide);
+			
+				// Auto-slide every 2 seconds
+				setInterval(showNextSlide, 2000);
+			</script>
 	</body>
 </html>
