@@ -3991,3 +3991,51 @@ input, select, textarea {
     .nav-btn:hover {
         background-color: transparent;
     }
+
+	.send-message-btn {
+		background-color: #b74e91; /* Your custom color */
+		color: white !important;
+		font-size: 0.8em;
+		padding: 0.75em 2.5em;
+		border: none;
+		border-radius: 3em;
+		box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+		transition: background-color 0.3s ease;
+	}
+	
+	.send-message-btn:hover {
+		background-color: #953d75; /* Darker shade on hover */
+	}
+
+	/* Modal Background */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    margin: 20% auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Close Button */
+.close-btn {
+    float: right;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+	
